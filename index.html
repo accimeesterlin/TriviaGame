@@ -1,123 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Trivia Game!</title>
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Trivilia Game!!!</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-<button class="start">Start the Game!!!</button>
+<div class="container content">
 
-<div class="container">
-	
+<section class="data">
+  <div class="time">
+    <p class="counter"></p>
+  </div>
 
+  <form action="#">
 
-<form>
-	<label><h3> Where is the Coding Boot Camp located? </h3><br></label> <br>
-	<input type="radio" name="location" > <p></p> </input> <br>
-	<input type="radio" name="location" > <p></p></input><br>
-	<input type="radio" name="location" > <p></p> </input><br>
-	<input type="radio" name="location" > <p></p></input><br>
-
-
-	<label> <h3> Where is the Coding Boot Camp located? </h3> <br></label> <br>
-	<input type="radio" name="color" > <p></p> </input><br>
-	<input type="radio" name="color" > <p></p> </input><br>
-	<input type="radio" name="color" > <p></p> </input><br>
-	<input type="radio" name="color" > <p></p></input><br>
+    <!-- First Series of questions -->
+    <label for="location">Where is the Coding Boot Camp Located?</label> <br>
+    <input type="radio" name="location" value="GA"> GA<br>
+    <input type="radio" name="location" value="NW"> NW<br>
+    <input type="radio" name="location" value="WD"> WD <br>
+    <input type="radio" name="location" value="AM"> AM<br>
 
 
-	<label><h3> Where is the Coding Boot Camp located? </h3> <br></label> <br>
-	<input type="radio" name="address" ><p></p> </input><br>
-	<input type="radio" name="address" > <p></p> </input><br>
-	<input type="radio" name="address" > <p></p> </input><br>
-	<input type="radio" name="address" ><p></p></input><br>
-
-
-	<label><h3> Where is the Coding Boot Camp located? </h3> <br></label> <br>
-	<input type="radio" name="title" ><p></p> </input><br>
-	<input type="radio" name="title" > <p></p> </input><br>
-	<input type="radio" name="title" > <p></p> </input><br>
-	<input type="radio" name="title" > <p></p><br>
+    <!-- First Series of questions -->
+    <label for="location">Where does Batman live?</label> <br>
+    <input type="radio" name="addresss" value="Gatham"> Gatham<br>
+    <input type="radio" name="addresss" value="New York"> New York<br>
+    <input type="radio" name="addresss" value="Gresham"> Gresham <br>
+    <input type="radio" name="addresss" value="Pendleton"> Pendleton<br>
 
 
 
-</form>
+    <!-- First Series of questions -->
+    <label for="location">What is your name?</label> <br>
+    <input type="radio" name="title" value="Patrick"> Patrick<br>
+    <input type="radio" name="title" value="Sadrack"> Sadrack<br>
+    <input type="radio" name="title" value="Stephen"> Stephen <br>
+    <input type="radio" name="title" value="Andrian"> Andrian<br>
+
+
+    <!-- First Series of questions -->
+    <label for="location">What color is the FEA?</label> <br>
+    <input type="radio" name="colors" value="red"> red<br>
+    <input type="radio" name="colors" value="blue"> blue<br>
+    <input type="radio" name="colors" value="green"> green <br>
+    <input type="radio" name="colors" value="yellow"> yellow<br>
+
+    
+
+  </form>
+
+ <button class="btn btn-primary done">Done</button>
 
 
 
-<button class="done">Done</button>
+
+</section>
+
+<div class="result">
+   <p class="correct"></p>
+   <p class="inCorrect"></p>
+   <p class="empty"></p>
+ </div>
 
 
-<p class="correct"></p>
-<p class="inCorrect"></p>
-<p class="empty"></p>
+  <button class="btn btn-primary start">Start Game!!!</button>
+
 </div>
 
-<script type="text/javascript" src="./assets/javascript/app.js"></script>
+
+<script src="./assets/javascript/app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,272 +1,88 @@
 
-
-
-var questions = [
-		{
-			question:"Where is the Coding Boot Camp?",
-			answers: ['GA', 'NW', 'BW', 'AL'],
-			correctAnswer: 'GA'
-		},
-
-		{
-			question:"What color is the FEA",
-			answers: [ 'red', 'blue', 'green', 'dark'],
-			correctAnswer: 'red'
-		},
-
-		{
-			question:"Where does Batman live?",
-			answers: ['Atlanta', 'Gotham', 'North Carolina', 'Washing DC'],
-			correctAnswer: 'Gotham'
-		},
-
-		{
-			question:"What is your name?",
-			answers: ['Patrick', 'John', 'William', 'Terressa'],
-			correctAnswer: 'John'
-		}
-	];
-
-
-// Global Variables
-var correctAnswer = 0,
+var answers = ['GA', 'Gatham', 'Stephen', 'red'],
+ 	data = $('input'),
  	inCorrectAnswer = 0,
+ 	correctAnswer = 0,
  	emptyAnswer = 0,
- 	userChoice = [],
- 	notChosen = [],
- 	count = 8;
+ 	counter = 30;
 
+
+
+
+function startGame(){
+	$('.data').css('display', 'none');
+		for(var i = 0; i < data.length; i++){
+			if(data[i].checked){
+
+				// Checking if user choice equal correct answer
+				if(answers.indexOf(data[i].value) !== -1){
+					correctAnswer++;
+				}
+
+				else{
+					inCorrectAnswer++;
+				}
+				
+			}
+		}
+
+		var result = correctAnswer + inCorrectAnswer;
+
+		// Checking if there is any empty
+		if(result !== 4){
+			emptyAnswer = 4 - result;
+		}
+
+		
+		$('.correct').html("You have: " + correctAnswer + " correct answers");
+		$('.inCorrect').html("You have: " + inCorrectAnswer + " inCorrect answers");
+		$('.empty').html( "You have: " + emptyAnswer + " empty answers");
+}
 
 
 
 
 $('.start').on('click', function(){
 
-	$('.container').css('display', 'block');
-	$('.start').css('display', 'none');
-	var counter = setInterval(function(){
+	$('.start').toggleClass('hide');
+	$(".data, .done").css('display', 'block');
 
-	count--;
-	console.log(count);
+	$('.done').on('click', function(){
+			startGame();
 
-	var title = $('h3'), // all the h3 4
-	 	result = document.forms[0], // all the inputs 16
-	 	guess = [];
+			clearInterval(startCounter);
 
-	 	//console.log(result);
+		}); // end of the done button
 
+	
+	// Start counter
+	var startCounter = setInterval(function(){
 
-function startChecking(){
+		
+		counter--;
 
-		// Grabbing the userChoice and updated to the Global Variable
-		for(var i = 0; i < result.length; i++){
-			if(result[i].checked){
-				userChoice.push(result[i].value);
-				
-			}
-			else{
-				notChosen.push(result[i].value);
-			}
+		(counter <= 9) ? $('.counter').html("You have " + '00:' + '0' + counter + ' remaining...') : $('.counter').html("You have " + '00:'  + counter + ' remaining...')
+		//$('.counter').html("You have " + '00:' + counter + " remaining...");
 
+		if(counter <= 0){
+			startGame();
+			clearInterval(startCounter);
 		}
 
-	questions.map(function(e, index){
-		var arr = e.answers; // array of answers
-		var correct = e.correctAnswer;
-	// Checking correct answer for every array
+		console.log(counter);
+	}, 1000);
 
-	//console.log(arr);
+	
 
-	if(arr.length === 4){
-			if(userChoice[index] === correct){
-				//console.log(userChoice[index]);
-				correctAnswer++;
-			}
-			else if(!userChoice.includes(correct)){
-				inCorrectAnswer++;
-			}
+	
+	
 
-			else{
-				emptyAnswer++;
-			}
+}); // end of the start button
 
-			
-		}
 
-	}); // Looping through
 
-	console.log(notChosen);
 
-	$('.correct').html("You got " + correctAnswer + " answers right");
-	$('.inCorrect').html("You got " + inCorrectAnswer + " answers wrong");
-	$('.empty').html("You got " + emptyAnswer + " not filled");
 
-	clearInterval(counter)
-} // end of startchecking
 
 
 
-
-
-
-
-
-	questions.map(function(e, index){
-		var arr = e.answers; // array of answers
-
-		$(title[index]).html(e.question); // Output the questions to the title in the DOM
-
-
-	arr.map(function(e){
-		guess.push(e);
-	});
-
-	}); // end of questions array
-
-
-
-
-	var para = $('p'); // Grabbing every p elements from the DOM
-
-	for(var i = 0; i < result.length; i++){
-		$(result[i]).attr('value', guess[i]);
-		$(para[i]).html(guess[i]);
-	}
-
-$('.done').on('click', function(){
-		startChecking();
-
-}); // when the user clicks the button
-
-
-
-
-	if(count <= 0){
-		startChecking();
-		clearInterval(counter)
-		$('form').css("display", 'none');
-	}
-}, 1000)
-});
-
-
-
-// Start button that starts the whole game.
-
-// A counter for 30 seconds
-
-// Title of the questions
-	// 4 answers
-		// You can only provide one answer per question
-		// a right one.
-
-
-
-// When counter hits 0
-	// All Done (message)
-
-	// Output to the DOM
-		//the correct answers
-		// Incorrect answers:
-		// Unanswered:
-
-
-
-
-
-// There is a done button
-	// Hide everything when user hits the DONE button
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// Ouput the results to the DOM
